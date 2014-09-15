@@ -3,22 +3,26 @@
 /* App Module */
 
 var jinJuApp = angular.module('JinJu', [
-  'ngRoute',
-  'jinJuControllers'
+    'ngRoute',
+    'jinJuControllers'
 ]);
 
-phonecatApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/phones', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'PhoneListCtrl'
-      }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
-      }).
-      otherwise({
-        redirectTo: '/phones'
-      });
-  }]);
+jinJuApp.config(['$routeProvider',
+    function ($routeProvider) {
+        $routeProvider.
+            when('/signup', {
+                templateUrl: 'partials/signup.html',
+                controller: 'signUpController'
+            }).
+            when('/login', {
+                templateUrl: 'partials/login.html',
+                controller: 'loginController'
+            }).
+            when("/home", {
+                templateUrl:'partials/content.html',
+                controller:"contentController"
+            }).
+            otherwise({
+                redirectTo: '/home'
+            });
+    }]);
