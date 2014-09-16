@@ -19,10 +19,14 @@ jinJuApp.config(['$routeProvider',
                 controller: 'loginController'
             }).
             when("/home", {
-                templateUrl:'partials/content.html',
-                controller:"contentController"
+                templateUrl: 'partials/home.html',
+                controller: "homeController"
             }).
             otherwise({
                 redirectTo: '/home'
             });
     }]);
+
+var GlobalConstants = {
+    serverRoot: "http://localhost:8080"
+}
