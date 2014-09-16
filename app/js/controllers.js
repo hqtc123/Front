@@ -41,23 +41,49 @@ jinJuControllers.controller('signUpController', ['$scope', '$location',
                 description: $scope.description
             }
             // 在 angular 中 每当有 异步执行的 可能改变界面 的 方法 应该用 apply wrap 起来
-            apiPost("/user/register", data, $scope.apply(function (rs) {
+            apiPost("/user/register", data, function (rs) {
                 if (rs.code == 0) {
-                    GlobalConstants.user = data;
-                    $location.path("/home");
+                    GlobalConstants.user = rs.data;
+                    $scope.$apply($location.path("/home"));
                 }
-            }))
+            })
         }
     }]);
 
-jinJuControllers.controller('loginController', ['$scope', '$routeParams',
-    function ($scope, $routeParams) {
-        $scope.phoneId = $routeParams.phoneId;
+jinJuControllers.controller('loginController', ['$scope', '$location',
+    function ($scope, $location) {
+//        $scope.phoneId = $routeParams.phoneId;
+        $scope.submit2 = function () {
+            if (!isEmail($scope.email)) {
+                showWarnMessage($("#inputEmail"), "邮箱格式不正确");
+                return false;
+            }
+
+            var data = {
+                email: $scope.email,
+                password: $scope.password
+
+            }
+            // 在 angular 中 每当有 异步执行的 可能改变界面 的 方法 应该用 apply wrap 起来
+            apiPost("/user/login", data, function (rs) {
+                if (rs.code == 0) {
+                    GlobalConstants.user = rs.data;
+                    $scope.$apply($location.path("/home"));
+                }
+            })
+        }
     }]);
 
 jinJuControllers.controller('homeController', ['$scope', '$routeParams',
     function ($scope) {
-        $scope.header = {
-            path: "partials/guest_header.html"
+        $scope.user = GlobalConstants.user;
+        if ($scope.user == null) {
+            $scope.header = {
+                path: "partials/guest_header.html"
+            }
+        } else {
+            $scope.header = {
+                path: "partials/header.html"
+            }
         }
     }]);
