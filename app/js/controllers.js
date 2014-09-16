@@ -43,6 +43,7 @@ jinJuControllers.controller('signUpController', ['$scope', '$location',
             // 在 angular 中 每当有 异步执行的 可能改变界面 的 方法 应该用 apply wrap 起来
             apiPost("/user/register", data, $scope.apply(function (rs) {
                 if (rs.code == 0) {
+                    GlobalConstants.user = data;
                     $location.path("/home");
                 }
             }))

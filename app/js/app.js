@@ -28,5 +28,6 @@ jinJuApp.config(['$routeProvider',
     }]);
 
 var GlobalConstants = {
-    serverRoot: "http://localhost:8080"
+    serverRoot: "http://localhost:8080",
+    user: null
 }
