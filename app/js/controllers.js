@@ -22,6 +22,7 @@ var jinJuControllers = angular.module('jinJuControllers', []);
 jinJuControllers.controller('signUpController', ['$scope', '$location',
     function ($scope, $location) {
         $scope.submit2 = function () {
+            $scope.description = "";
             if (!isEmail($scope.email)) {
                 showWarnMessage($("#inputEmail"), "邮箱格式不正确");
                 return false;
@@ -74,8 +75,8 @@ jinJuControllers.controller('loginController', ['$scope', '$location',
         }
     }]);
 
-jinJuControllers.controller('homeController', ['$scope', '$routeParams',
-    function ($scope) {
+jinJuControllers.controller('homeController', ['$scope', '$location',
+    function ($scope, $location) {
         $scope.user = GlobalConstants.user;
         if ($scope.user == null) {
             $scope.header = {
@@ -84,6 +85,19 @@ jinJuControllers.controller('homeController', ['$scope', '$routeParams',
         } else {
             $scope.header = {
                 path: "partials/header.html"
+            };
+            $scope.getEmail = function () {
+                apiPost("/user/email", function (rs) {
+                    alert(rs.data);
+                    $scope.$apply();
+                })
+            };
+            $scope.logout = function () {
+                apiPost("/user/logout", function (rs) {
+                    if (rs.code == 0) {
+                        $scope.$apply($location.path("/login"));
+                    }
+                })
             }
         }
     }]);
