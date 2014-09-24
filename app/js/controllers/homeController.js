@@ -13,12 +13,6 @@ jinJuControllers.controller('homeController', ['$scope', '$location',
             $scope.header = {
                 path: "partials/header.html"
             };
-            $scope.getEmail = function () {
-                apiPost("/user/current", function (rs) {
-                    alert(rs.data.email);
-                    $scope.$apply();
-                })
-            };
             $scope.logout = function () {
                 apiPost("/user/logout", function (rs) {
                     if (rs.code == 0) {

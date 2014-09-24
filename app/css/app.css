@@ -1,23 +1,66 @@
 /* app css stylesheet */
-
 body {
   padding-top: 20px;
+  background-color: #ccdfdf;
+  font-family: "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft Yahei", "微软雅黑", Tahoma, Arial, STHeiti, sans-serif;
 }
-
-.phones {
-  list-style: none;
+.navbar .navbar-mask {
+  position: absolute;
+  height: 80px;
+  width: 100%;
+  z-index: -1;
+  border-bottom: 1px solid rgba(119, 119, 119, 0.6);
 }
-
-.thumb {
+.navbar ul {
+  padding-top: 15px;
+}
+.main-container {
+  width: 1024px;
+  margin: auto;
+}
+.main-container .navbar-header .logo {
+  cursor: pointer;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-right: 1px solid rgba(119, 119, 119, 0.4);
+  height: 80px;
+}
+.content-container {
+  margin-top: 80px;
+}
+.content-container .left-content {
   float: left;
-  margin: -0.5em 1em 1.5em 0;
-  padding-bottom: 1em;
-  height: 100px;
+  width: 750px;
+}
+.content-container .left-content .announce-item {
+  float: left;
+  padding: 0 20px 20px 20px;
+}
+.content-container .left-content .announce-item .announce-left {
+  float: left;
   width: 100px;
 }
-
-.phones li {
-  clear: both;
-  height: 115px;
-  padding-top: 15px;
+.content-container .left-content .announce-item .announce-left img {
+  margin-top: 5px;
+  width: 80px;
+  height: 80px;
+  border-radius: 2px;
+}
+.content-container .left-content .announce-item .announce-right {
+  border-radius: 4px;
+  background-color: #fdfdfd;
+  float: right;
+  width: 600px;
+  padding: 20px;
+  box-shadow: 1px 1px 1px rgba(119, 119, 119, 0.4), 1px 1px 1px rgba(119, 119, 119, 0.4), 1px 1px 1px rgba(119, 119, 119, 0.4);
+}
+.content-container .left-content .announce-item .announce-right .announce-content {
+  float: right;
+  font-size: 18px;
+}
+.content-container .left-content .announce-item .announce-right .announce-bottom .bottom-left {
+  float: left;
+}
+.content-container .left-content .announce-item .announce-right .announce-bottom .bottom-right {
+  float: right;
 }

@@ -1,0 +1,82 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+  background-color: #ccdfdf;
+  font-family: "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft Yahei", "微软雅黑", Tahoma, Arial, STHeiti, sans-serif;
+}
+
+.navbar {
+  .navbar-mask {
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    z-index: -1;
+    border-bottom: 1px solid rgba(119, 119, 119, 0.6);
+  }
+
+  ul {
+    padding-top: 15px;
+  }
+}
+
+.main-container {
+  width: 1024px;
+  margin: auto;
+  .navbar-header {
+    .logo {
+      cursor: pointer;
+      padding-left: 40px;
+      padding-right: 40px;
+      border-right: 1px solid rgba(119, 119, 119, 0.4);
+      height: 80px;
+    }
+
+  }
+}
+
+.content-container {
+  margin-top: 80px;
+  .left-content {
+    float: left;
+    width: 750px;
+    .announce-item {
+      float: left;
+      padding: 0 20px 20px 20px;
+      .announce-left {
+        float: left;
+        width: 100px;
+        img {
+          margin-top: 5px;
+          width: 80px;
+          height: 80px;
+          border-radius: 2px;
+        }
+      }
+      .announce-right {
+        border-radius: 4px;
+        background-color: #fdfdfd;
+        float: right;
+        width: 600px;
+        padding: 20px;
+
+        box-shadow: 1px 1px 1px rgba(119, 119, 119, 0.4),
+        1px 1px 1px rgba(119, 119, 119, 0.4),
+        1px 1px 1px rgba(119, 119, 119, 0.4);
+
+        .announce-content {
+          float: right;
+          font-size: 18px;
+        }
+        .announce-bottom {
+          .bottom-left {
+            float: left;
+          }
+          .bottom-right {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
